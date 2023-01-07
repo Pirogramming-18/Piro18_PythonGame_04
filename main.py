@@ -1,5 +1,5 @@
 import random
-from game01 import game01
+
 
 pre_userList=['혜원','성일','민지','창진']
 #user_info={}
@@ -115,6 +115,7 @@ def main():
         
 
 before_game()
-game01.game01(userList_Name)
+print(userList_Name)
+
     
         
