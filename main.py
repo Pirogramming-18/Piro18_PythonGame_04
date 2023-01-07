@@ -3,6 +3,7 @@ import random
 pre_userList=['혜원','성일','민지','창진']
 #user_info={}
 final_userList=[]
+userList_Name=[]
 limit_list=[2,4,6,8,10]
 Me=''
 
@@ -34,7 +35,7 @@ def before_game():
             user_info['drink']=0
             user_info['life']=0
             final_userList.append(user_info)
-
+            userList_Name.append(Me)
             break
         
     while True:
@@ -63,6 +64,9 @@ def before_game():
                 user_info['life']=0
 
                 final_userList.append(user_info)
+                userList_Name.append(user_info['name'])
+            
+            print(userList_Name)
 
             break
         
@@ -109,8 +113,7 @@ def main():
         if select==1:
            print('1')
         
-        
-main()           
-     
+
+before_game()
     
         
