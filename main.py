@@ -1,4 +1,5 @@
 import random
+from game01 import game01
 
 pre_userList=['혜원','성일','민지','창진']
 #user_info={}
@@ -65,8 +66,6 @@ def before_game():
 
                 final_userList.append(user_info)
                 userList_Name.append(user_info['name'])
-            
-            print(userList_Name)
 
             break
         
@@ -101,6 +100,7 @@ def select_game():
 #게임 시작
 def main():
     before_game()
+    
     show_state()
     for user in final_userList:
         select=0
@@ -115,5 +115,6 @@ def main():
         
 
 before_game()
+game01.game01(userList_Name)
     
         
