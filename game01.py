@@ -8,13 +8,14 @@ def game01(user_list):
     
     game_user_list=[]
     
-    #눈치게임 순서 번호 랜덤으로 부여
-    
+    #눈치게임 순서 번호 랜덤으로 부여    
     list=[] #중복체크용
     for user in user_list:
         x=random.randint(1,max_num)
-        while x in list:
-            x=random.randint(1,max_num)
+        
+        #중복허용 x 코드
+        # while x in list:
+        #     x=random.randint(1,max_num)
         list.append(x) 
         
         users={}
@@ -22,17 +23,32 @@ def game01(user_list):
         users['num']=x
         game_user_list.append(users)
   
-
-        
-    #동시에 일어선 ver->근데 이거 할지말지 좀 고민해봐야함
-    # for i in range(0,num):
-    #     for j in range(i+1,num):
-    #         if game_user_list[i]['num']==game_user_list[j]['num']:
-    #             print("{} {}이 동시에 일어섰다! 탈락!".format(game_user_list[i]['name'],game_user_list[j]['name']))
-    #             return game_user_list[i]['name'],game_user_list[j]['name']
+    # for k in range(1,max_num):
+    #     for i in range(0,max_num):
+    #         for j in range(i+1,max_num):
+                # if game_user_list[i]['num']==game_user_list[j]['num']:
+                #     cnt+=1
+                #     for x in double_list:    
+                #         if game_user_list[i]['name'] not in double_list:double_list.append(game_user_list[i]['name'])
+                #         if game_user_list[j]['name'] not in double_list:double_list.append(game_user_list[j]['name'])
+                    
+                # print("{} {}이 동시에 일어섰다! 탈락!".format(game_user_list[i]['name'],game_user_list[j]['name']))
     
+    double_list=[]#동시에 일어난 사람들 리스트
+    #동시에 일어선 ver->근데 이거 할지말지 좀 고민해봐야함           
+    for k in range(1,max_num+1):
+        for i in range(0,max_num):
+            if k==game_user_list[i]['num']:double_list.append(game_user_list[i]['name'])
+        if len(double_list)>1:break #중복인 유저가있다면 for문 탈출
+        else:double_list=[] #다시 리스트 비운 후 중복유저 체크
+    
+    if double_list:
+        for user in double_list:
+            print('{}(이)가 동시에 일어났습니다!'.format(user))
+        print("이분들은 탈락~")
+        return double_list           
  
-    #마지막 사람이 지는 ver
+    #마지막 사람이 지는 ver(동시 x)
     line_list=[]
     deq=deque(game_user_list)
     print(deq)
@@ -66,12 +82,15 @@ def game01(user_list):
             loser=line_list[i]
             
     print('\n{}님이 마지막에 일어나서 졌습니다!'.format(loser))
-    return loser
+    
+    loser_list=[]
+    loser_list.append(loser)
+    
+    return loser_list
     
     
         
-            
-game01(['혜원','민지',"성일","창진"])   
+print("return:",game01(['혜원','민지',"성일","창진"]))   
         
     
     
