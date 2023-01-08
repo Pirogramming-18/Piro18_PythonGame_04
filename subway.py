@@ -111,7 +111,7 @@ def playGame(stationList, name_list):
             prob = random.randint(0, 100)
 
             # 컴퓨터가 맞추는 경우 -> (100 - prob)%
-            if prob >= 10:
+            if prob >= 7:
                 time.sleep(0.4)
                 print('쿵! ', end='')
                 time.sleep(0.4)
