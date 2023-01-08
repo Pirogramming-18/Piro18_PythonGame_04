@@ -22,26 +22,14 @@ def game01(user_list):
         users['name']=user
         users['num']=x
         game_user_list.append(users)
-  
-    # for k in range(1,max_num):
-    #     for i in range(0,max_num):
-    #         for j in range(i+1,max_num):
-                # if game_user_list[i]['num']==game_user_list[j]['num']:
-                #     cnt+=1
-                #     for x in double_list:    
-                #         if game_user_list[i]['name'] not in double_list:double_list.append(game_user_list[i]['name'])
-                #         if game_user_list[j]['name'] not in double_list:double_list.append(game_user_list[j]['name'])
-                    
-                # print("{} {}이 동시에 일어섰다! 탈락!".format(game_user_list[i]['name'],game_user_list[j]['name']))
     
     double_list=[]#동시에 일어난 사람들 리스트
-    #동시에 일어선 ver->근데 이거 할지말지 좀 고민해봐야함           
+    #동시에 일어선 ver      
     for k in range(1,max_num+1):
         for i in range(0,max_num):
             if k==game_user_list[i]['num']:double_list.append(game_user_list[i]['name'])
         if len(double_list)>1:break #중복인 유저가있다면 for문 탈출
         else:double_list=[] #다시 리스트 비운 후 중복유저 체크
-    
     if double_list:
         for user in double_list:
             print('{}(이)가 동시에 일어났습니다!'.format(user))
@@ -60,20 +48,6 @@ def game01(user_list):
             deq.append(q)
             q=deq.popleft()
         line_list.append(q['name'])
-    
- 
-        
-    # line_list=[]
-    # for user in game_user_list:
-    #     if user['num']==1:
-    #         line_list.append(user['name'])
-    #         print(user['name'])
-    #     elif user['num']==2:
-    #         line_list.append(user['name'])
-    #     elif user['num']==3:
-    #         line_list.append(user['name'])
-    #     elif user['num']==4:
-    #         line_list.append(user['name'])
 
     loser=''
     for i in range(max_num):
@@ -90,7 +64,7 @@ def game01(user_list):
     
     
         
-print("return:",game01(['혜원','민지',"성일","창진"]))   
+#print("return:",game01(['혜원','민지',"성일","창진"]))   
         
     
     

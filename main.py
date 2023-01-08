@@ -1,5 +1,5 @@
 import random
-
+from game01 import game01
 
 pre_userList=['혜원','성일','민지','창진']
 #user_info={}
@@ -29,7 +29,7 @@ def before_game():
         except:
             print('1~5사이 정수를 입력해주세여..')
         else:
-            print("{}님 당신의 치사량은 {}잔으로 입력하셨습니다!".format(Me,limit_list[limit-1]))
+            print("{}님 당신의 치사량은 {}잔으로 입력하셨습니다!\n".format(Me,limit_list[limit-1]))
             user_info={}
             user_info['name']=Me
             user_info['limit']=limit_list[limit-1]
@@ -68,54 +68,60 @@ def before_game():
                 userList_Name.append(user_info['name'])
 
             break
+    return Me
         
 
 def show_state():
+    print('\n')
     for user in final_userList:
         print('{}는 지금까지 {}잔 마셨지롱~ 치사량까지 {} 남았슴다 '.format(user['name'],user['drink'],user['life']))
 
 
 def show_game():
     print("========오늘의 ALCohol Game=============")
-    print('1.')
+    print('1. 눈치게임 !')
     print('2.')
     print('3.')
     print('4.')
     print('5.')
 
-def select_game():
-    try:
-        select=int(input("술게임 진행중!{}(이)가 좋아하는 랜덤 게임~무슨게임? 게임 스타트!: "))
-        
-        if not 1<=select<=4:
-            raise Exception()
+def select_game(user,Me):
     
-    except: print("1에서 5사이 정수 중에 골라보시라구..")
-    else:
-        print('{}님이 게임을 선택했습니다!'.format(Me))
-        return select
+    while True:
+        try: 
+            if user['name']==Me:
+                select=int(input("술게임 진행중!{}(이)가 좋아하는 랜덤 게임~무슨게임? 게임 스타트!: ".format(user['name'])))
+            else:
+                select=random.randint(1,5)
+                print('술게임 진행중!{}(이)가 좋아하는 랜덤 게임~무슨게임? 게임 스타트!:{}'.format(user['name'],select))
+                
+            if not 1<=select<=4:
+                raise Exception()
         
-
+        except: print("1에서 5사이 정수 중에 골라보시라구..")
+        else:
+            print('{}님이 게임을 선택했습니다!\n'.format(Me))
+            return select
+        
+# 한판 한 후 게임결과 계산
+#def calc_life(loser_list):
+    
          
 #게임 시작
-def main():
-    before_game()
-    
-    show_state()
-    for user in final_userList:
-        select=0
-        show_game()
-        if user['name']==Me:
-            select=select_game()
-        else:
-            select=random.randint(1,5)
-        
-        if select==1:
-           print('1')
-        
 
-before_game()
-print(userList_Name)
+Me=before_game()
+    
+show_state()
+for user in final_userList:
+    select=0
+    show_game()
+   
+    select=select_game(user,Me)
+            
+    if select==1:
+        loser_list=game01(userList_Name)
+
+
 
     
         
