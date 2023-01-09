@@ -146,7 +146,7 @@ def main():
             
             # 개별 게임 진행      
             if select==1:
-                loser_list=timing_game(userList_Name)
+                loser_list=timing_game(userList_Name,Me)
                 
             elif select==2:
                 loser_list=up_down(userList_Name)
