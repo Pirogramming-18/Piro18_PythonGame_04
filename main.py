@@ -2,7 +2,7 @@ import random
 import sys
 from timing_game import timing_game
 from up_down import up_down
-#from subway import subwayGame
+from subway import subwayGame
 from hitting_a_bottle_cap import hit_bottlecap
 
 pre_userList=['혜원','성일','민지','창진']
@@ -154,7 +154,7 @@ def main():
                 
             elif select==3:
                 print('subway')
-                #loser_list=subwayGame(userList_Name)
+                loser_list=subwayGame(userList_Name)
                 
             elif select==4:
                 loser_list=hit_bottlecap(userList_Name)
@@ -163,9 +163,4 @@ def main():
             show_state() #현재 상태 출력
             check_life(final_userList) #치사량 도달 체크
             
-main()
-
-
-
-    
-        
+main()        

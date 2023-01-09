@@ -157,5 +157,5 @@ def subThread(name_list):
     return
 
 
-name_list = ['성일', '혜원', '민지', '창진'] # 임시
-subwayGame(name_list)
+# name_list = ['성일', '혜원', '민지', '창진'] # 임시
+# subwayGame(name_list)

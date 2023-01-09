@@ -72,4 +72,4 @@ def hit_bottlecap(userList_Name):
               loser.append(userList_Name[i+2])
               return loser
 
-print((hit_bottlecap(userList_Name)))
+#print((hit_bottlecap(userList_Name)))
