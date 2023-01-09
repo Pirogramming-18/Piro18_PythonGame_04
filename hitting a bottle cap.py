@@ -12,7 +12,7 @@ import random
 pre_userList=['혜원','성일','민지','창진']
 userList_Name=pre_userList
 
-def Game(userList_Name):
+def hit_bottlecap(userList_Name):
 
     #병뚜껑 수명 설정
     cap_life=random.randint(10,20)
@@ -72,4 +72,4 @@ def Game(userList_Name):
               loser.append(userList_Name[i+2])
               return loser
 
-print((Game(userList_Name)))
+print((hit_bottlecap(userList_Name)))
