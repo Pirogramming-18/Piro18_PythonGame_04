@@ -2,8 +2,8 @@ import random
 import sys
 from timing_game import timing_game
 from up_down import up_down
-from subway import*
-from hitting_a_bottle_cap import*
+#from subway import subwayGame
+from hitting_a_bottle_cap import hit_bottlecap
 
 pre_userList=['혜원','성일','민지','창진']
 #user_info={}
@@ -87,7 +87,7 @@ def show_game():
     print('1. 눈치게임 !')
     print('2. 업다운 게임 !')
     print('3. 지하철 게임 !')
-    print('4.')
+    print('4. 병꼬리 날리기 !')
     
 
 def select_game(user,Me):
@@ -100,10 +100,10 @@ def select_game(user,Me):
                 if p=='e':
                     return 0
                 
-                select=random.randint(1,2)
+                select=random.randint(1,4)
                 print('술게임 진행중!{}(이)가 좋아하는 랜덤 게임~무슨게임? 게임 스타트!:{}'.format(user['name'],select))
                 
-            if not 1<=select<=2:
+            if not 1<=select<=4:
                 raise Exception()
         
         except: print("1에서 4사이 정수 중에 골라보시라구..\n")
@@ -153,8 +153,8 @@ def main():
                 loser_list=up_down(userList_Name)
                 
             elif select==3:
-    
-                loser_list=subwayGame(userList_Name)
+                print('subway')
+                #loser_list=subwayGame(userList_Name)
                 
             elif select==4:
                 loser_list=hit_bottlecap(userList_Name)
