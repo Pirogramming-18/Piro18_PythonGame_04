@@ -9,8 +9,6 @@
 
 import random
 
-userList_Name = ['혜원', '성일', '민지', '창진'] #샘플. 나중에 지워야 함
-
 def up_down(userList_Name):
     player_list = userList_Name
     loser_list = player_list
@@ -72,7 +70,4 @@ def up_down(userList_Name):
         if num == answer: break
         
     print("~~~~~게임 끝!!~~~~~")
-    #print(loser_list) #확인용 #나중에 지워야 함
     return loser_list
-    
-#up_down()
