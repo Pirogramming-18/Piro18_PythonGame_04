@@ -12,7 +12,12 @@ def timing_game(user_list,Me):
     list=[] #중복체크용
     for user in user_list:
         if user==Me:
-            x=int(input('몇번째로 일어나고 싶어요? (1~{}사이 고르기): '.format(len(user_list))))
+            while True:
+                try:
+                    x=int(input('몇번째로 일어나고 싶어요? (1~{}사이 고르기): '.format(len(user_list))))
+                    if not 1<=x<= len(user_list):raise Exception
+                except:print('1~{}사이로 고르란말이야~'.format(len(user_list)))
+                else:break
         else: x=random.randint(1,max_num)
         
         #중복허용 x 코드-->>>팀원들 물어보고 결정!
